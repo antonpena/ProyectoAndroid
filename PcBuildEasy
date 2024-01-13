@@ -1,23 +1,46 @@
-Nombre de la Aplicación: PCBuildEasy
+package com.pcbuildeasy.proyectoandroid
 
-Funcionalidad y Propósito:
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.pcbuildeasy.proyectoandroid.ui.theme.ProyectoAndroidTheme
 
-PCBuildEasy es una aplicación Android diseñada para facilitar la compra de componentes de PC, permitiendo a los usuarios construir y personalizar sus computadoras fácilmente. La aplicación busca simplificar el proceso de selección y compra de componentes, brindando a los usuarios una experiencia intuitiva y completa.
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            ProyectoAndroidTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Greeting("Android")
+                }
+            }
+        }
+    }
+}
 
-Características Principales:
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
+}
 
-Catálogo de Componentes:
-
-Ofrece un catálogo actualizado de componentes esenciales para construir una PC.
-Compatibilidad Automática:
-
-Verifica automáticamente la compatibilidad entre los componentes seleccionados.
-Constructor de PC Virtual:
-
-Permite a los usuarios construir virtualmente su PC y calcular automáticamente el costo total.
-Comparación de Precios:
-
-Facilita la comparación de precios entre diferentes proveedores para obtener las mejores ofertas.
-Proceso de Compra Seguro:
-
-Ofrece un proceso de compra seguro y fácil de seguir, con opciones de pago confiables.
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    ProyectoAndroidTheme {
+        Greeting("Android")
+    }
+}
